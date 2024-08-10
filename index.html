@@ -11,18 +11,14 @@
     Opening...
   </h1>
 
-  <button style="color: rgb(0, 0, 0);" onclick="closeTab()">
-    Close!
+  <button style="color: rgb(0, 0, 0);" onclick="history.back()">
+    Back
   </button>
 
   <script>
-    function closeTab() {
-      window.close();
-    }
-
     const urlParams = new URLSearchParams(window.location.search);
     const q = urlParams.get('q');
-    document.getElementById("query").value = "Opening " + (q ?? '');
+    document.getElementById("query").textContent = "Opening " + (q ?? '');
 
     if (q.startsWith('https://')) {
       window.location.assign('freetube://' + q)
