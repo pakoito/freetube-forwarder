@@ -1,5 +1,9 @@
 <script>
   const urlParams = new URLSearchParams(window.location.search);
   const q = urlParams.get('q');
-  window.location.assign('freetube://' + q)
+  if (q.startsWith('https://')) {
+    window.location.assign('freetube://' + q)
+  } else {
+    window.location.assign('freetube://https://www.youtube.com/results?search_query=' + q)
+  }
 </script>
