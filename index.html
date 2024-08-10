@@ -18,8 +18,12 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const q = urlParams.get('q');
-    document.getElementById("query").textContent = "Opening " + (q ?? '');
+    if (!q) {
+      document.getElementById("query").textContent = "Please set a queryparameter such as ?q=muppets";
+      return;
+    }
 
+    document.getElementById("query").textContent = "Opening " + (q ?? '');
     if (q.startsWith('https://')) {
       window.location.assign('freetube://' + q)
     } else {
