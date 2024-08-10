@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Freetube Redirect</title>
+  <title>Freetube Forwarder</title>
 </head>
 
 <body style="text-align: center;" style="color: rgb(255, 255, 255);">
@@ -21,7 +21,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const q = urlParams.get('q');
     if (!q) {
-      message.innerText = "Please set a queryparameter such as ?q=muppets";
+      message.innerText = "Please set a query parameter such as ?q=muppets";
     } else {
       if (q.startsWith('https')) {
         const targetUrl = 'freetube://' + q;
