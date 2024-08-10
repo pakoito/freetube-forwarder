@@ -1,9 +1,35 @@
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const q = urlParams.get('q');
-  if (q.startsWith('https://')) {
-    window.location.assign('freetube://' + q)
-  } else {
-    window.location.assign('freetube://https://www.youtube.com/results?search_query=' + q)
-  }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Freetube...</title>
+</head>
+
+<body style="text-align: center;" style="color: rgb(255, 255, 255);">
+
+  <h1 style="color: rgb(0, 0, 0);" id="query">
+    Opening...
+  </h1>
+
+  <button style="color: rgb(0, 0, 0);" onclick="closeTab()">
+    Close!
+  </button>
+
+  <script>
+    function closeTab() {
+      window.close();
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const q = urlParams.get('q');
+    document.getElementById("query").value = "Opening " + (q ?? '');
+
+    if (q.startsWith('https://')) {
+      window.location.assign('freetube://' + q)
+    } else {
+      window.location.assign('freetube://https://www.youtube.com/results?search_query=' + q)
+    }
+  </script>
+
+</body>
+
